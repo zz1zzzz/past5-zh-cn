@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "past5loc": {
+      "command": "python",
+      "args": ["-m", "past5loc.mcp_server"],
+      "cwd": "D:\\桌面\\past5.3"
+    }
+  }
+}

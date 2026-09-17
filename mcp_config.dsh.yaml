@@ -1,0 +1,80 @@
+# past5loc MCP 接入配置
+
+本目录是一个自包含的 PAST 5 汉化工具链：`past5loc` 是纯 Python 包
+（MCP 部分需要 `mcp` 包），MCP 服务器走 **stdio** 传输。
+
+---
+
+## 1. DSH（本机 harness）
+
+DSH 通过 `@deepseek-ai/dsh-mcp-client` 桥接外部 MCP 服务器。
+在 harness 的插件配置中加入下面一条即可（字段含义见该包 README）：
+
+```yaml
+- id: mcp-past5loc
+  name: '@deepseek-ai/dsh-mcp-client'
+  config:
+    serverName: past5loc
+    transport: stdio
+    command: python
+    args: ['-m', 'past5loc.mcp_server']
+    cwd: 'D:\桌面\past5.3'
+    toolCallTimeoutMs: 600000        # build 需要读写 39MB exe，给足超时
+```
+
+接入后工具会以 `mcp__past5loc__<tool>` 形式出现：
+
+| 工具 | 作用 |
+|---|---|
+| `mcp__past5loc__past5_list_resources` | 列出 PE 资源（默认只看内嵌窗体） |
+| `mcp__past5loc__past5_extract_strings` | 提取可翻译字符串（含结构校验） |
+| `mcp__past5loc__past5_check_dictionary` | 检查词典覆盖率与不可用条目 |
+| `mcp__past5loc__past5_build` | 生成汉化 exe |
+| `mcp__past5loc__past5_verify` | 审计汉化情况 |
+| `mcp__past5loc__past5_run_command` | 透传任意 CLI 子命令 |
+
+---
+
+## 2. Claude Desktop / Cursor / Cline 等（mcpServers 通用格式）
+
+```json
+{
+  "mcpServers": {
+    "past5loc": {
+      "command": "python",
+      "args": ["-m", "past5loc.mcp_server"],
+      "cwd": "D:\\桌面\\past5.3"
+    }
+  }
+}
+```
+
+配置文件位置：
+
+- Claude Desktop（Windows）: `%APPDATA%\Claude\claude_desktop_config.json`
+- Claude Desktop（macOS）: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- Cursor: `~/.cursor/mcp.json`
+
+---
+
+## 3. 不需要 MCP 时：CLI 或 HTTP
+
+**CLI**（agent 直接 subprocess 调用，输出 JSON）：
+
+```bat
+cd /d D:\桌面\past5.3
+python -m past5loc verify  Past5_zh-CN.exe
+python -m past5loc build   Past5.exe translations_zh.json -o Past5_zh-CN.exe --allow allow_strings.json
+```
+
+**HTTP API**：
+
+```bat
+cd /d D:\桌面\past5.3
+python -m past5loc serve --port 8765
+```
+
+```bash
+curl -s -X POST http://127.0.0.1:8765/verify -H "Content-Type: application/json" \
+     -d '{"exe":"D:/桌面/past5.3/Past5_zh-CN.exe"}'
+```

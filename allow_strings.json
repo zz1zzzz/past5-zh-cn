@@ -1,0 +1,21 @@
+[
+ "(%d)",
+ "<#NAME>",
+ "<#VALUE>",
+ "All files (*.*)|*.*|PAST files (*.dat)|*.dat|Text files (*.txt)|*.txt|Excel files (*.xls)|*.xls",
+ "All files (*.*)|*.*|Text files (*.*)|*.txt",
+ "Boot, centered",
+ "Environmental variables",
+ "Factor A, Q values",
+ "Factor A, p values",
+ "Factor B, Q values",
+ "Factor B, p values",
+ "ISO-8859-1",
+ "PAST (*.dat)|*.dat|Text (*.txt)|*.txt|Excel (*.xls)|*.xls|Nexus (*.nex)|*.nex|TPS (*.tps)|*.tps|NTSYS (*.nts)|*.nts|FASTA (*.fas)|*.fas|Rich text (*.rtf)|*.rtf|RASC (*.dic)",
+ "SVG (*.svg)|*.svg",
+ "Segoe UI",
+ "Text (*.txt)|*.txt",
+ "Zoom in",
+ "Zoom out",
+ "prf|*.prf"
+]
