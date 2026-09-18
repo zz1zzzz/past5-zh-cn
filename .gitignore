@@ -1,12 +1,9 @@
-# --- 原版 PAST 与手册：从官方获取，不入库 ---
+# --- PAST 二进制：通过 GitHub Releases 分发，不入库 ---
 Past5.exe
+Past5_zh-CN.exe
 past5manual.pdf
-
-# --- 临时/中间构建产物 ---
-Past5_zh_test.exe
-Past5_zh-CN_safe.exe
-Past5_zh-CN_rebuild.exe
-*_rebuild.exe
+*.exe
+*.pdf
 
 # --- 运行产物 / 临时文件 ---
 __pycache__/
@@ -25,5 +22,3 @@ suspect_*.json
 .vscode/
 .idea/
 *.swp
-
-# 说明：发布产物 Past5_zh-CN.exe 是**允许**提交的（见 README）。
