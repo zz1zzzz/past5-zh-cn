@@ -22,10 +22,13 @@ SOFTWARE.
 
 ---
 
-本仓库只包含汉化工具链与翻译词典，**不包含 PAST 软件本体**。
+本仓库的**工具链与翻译词典**（`past5loc/`、`translations_zh.json`、
+`allow_strings.json`、文档与脚本）以 MIT 许可发布。
 
+本仓库同时提供已构建的界面汉化版 `Past5_zh-CN.exe`，它基于 PAST 5 修改而来。
 PAST (PAlaeontological STatistics) 由 Øyvind Hammer 与 David A. Harper 开发，
-版权归其作者所有，请从官方站点获取原版：
+原始版权归其作者所有。原版可从官方站点获取：
+
 https://www.nhm.uio.no/english/research/resources/past/
 
-使用本工具时，请遵守 PAST 自身的许可条款。
+使用 PAST 及其修改版时，请遵守 PAST 自身的许可条款，并引用其作者的工作。

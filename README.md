@@ -3,14 +3,24 @@
 把 [PAST](https://www.nhm.uio.no/english/research/resources/past/)（PAlaeontological
 STatistics）第 5 版的英文界面汉化成简体中文。
 
-> **本仓库不包含 PAST 本体**。请从官网下载原版 `Past5.exe`，再用本工具生成汉化版。
-> PAST 版权归 Øyvind Hammer 与 David A. Harper 所有。
+本仓库包含两部分：
+
+- **`Past5_zh-CN.exe`** —— 已构建好的汉化版，下载即用（可选）
+- **汉化工具链** —— 你可以修改词典后自行重新构建
+
+> PAST 由 Øyvind Hammer 与 David A. Harper 开发。原版请从
+> [官方站点](https://www.nhm.uio.no/english/research/resources/past/)获取；
+> 本仓库不重新分发原版 `Past5.exe`。
 
 支持三种接入方式：**MCP**（供 AI agent 调用）、**CLI**、**HTTP API**。
 
 ---
 
-## 快速开始
+## 直接使用汉化版
+
+下载 `Past5_zh-CN.exe` 直接运行即可。它是原版程序的界面汉化版，功能完全一致。
+
+## 自行构建
 
 ```bash
 # 0) 准备：把官网下载的原版 Past5.exe 放到本目录

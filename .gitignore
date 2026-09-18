@@ -1,11 +1,12 @@
-# --- PAST 本体与产物：不纳入版本控制（版权） ---
+# --- 原版 PAST 与手册：从官方获取，不入库 ---
 Past5.exe
-Past5_zh-CN.exe
+past5manual.pdf
+
+# --- 临时/中间构建产物 ---
 Past5_zh_test.exe
 Past5_zh-CN_safe.exe
-past5manual.pdf
-*.exe
-*.pdf
+Past5_zh-CN_rebuild.exe
+*_rebuild.exe
 
 # --- 运行产物 / 临时文件 ---
 __pycache__/
@@ -15,9 +16,8 @@ __pycache__/
 *.bak-*
 *.log
 
-# --- 截图与测试输出 ---
+# --- 审计与测试输出（按需重新生成） ---
 shot*.png
-*_rebuild.exe
 audit_missing.json
 suspect_*.json
 
@@ -25,3 +25,5 @@ suspect_*.json
 .vscode/
 .idea/
 *.swp
+
+# 说明：发布产物 Past5_zh-CN.exe 是**允许**提交的（见 README）。
